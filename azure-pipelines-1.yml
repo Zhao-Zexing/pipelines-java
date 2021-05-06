@@ -7,15 +7,18 @@ trigger:
 - master
 
 pool:
-  vmImage: 'ubuntu-18.04' 
+  vmImage: 'windows-2019'
+
 
 variables:
   buildConfiguration: 'Release'
 
 steps:
 - task: UseDotNet@2
+  displayName: 'Install .NET Core SDK'
   inputs:
-    version: '5.0.x'
+    version: 5.0.x
+    performMultiLevelLookup: true
     includePreviewVersions: true # Required for preview versions
 
 - task: UseDotNet@2
